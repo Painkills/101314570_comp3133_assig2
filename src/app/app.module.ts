@@ -12,6 +12,7 @@ import { EmpEditingComponent } from './emp-editing/emp-editing.component';
 import { EmpAddingComponent } from './emp-adding/emp-adding.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserAddingComponent } from './user-adding/user-adding.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -24,7 +25,8 @@ import { UserAddingComponent } from './user-adding/user-adding.component';
     EmpDetailsComponent,
     EmpEditingComponent,
     EmpAddingComponent,
-    UserAddingComponent
+    UserAddingComponent,
+    LoginComponent
   ],
 
   imports: [

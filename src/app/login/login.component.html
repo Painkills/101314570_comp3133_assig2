@@ -1,21 +1,17 @@
 <div>
-    <h2>Add a User:</h2>
+    <h1>Login</h1>
     <div class="empDetails">
-        <form class="form" [formGroup]="addUserForm" (ngSubmit)="addUser()">
+        <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
             <label for="username">Username:</label>
             <br>
             <input type="text" name="username" placeholder="Username" formControlName="username"/>
-            <br>
-            <label for="email">Email:</label>
-            <br>
-            <input type="email" name="email" placeholder="Email" formControlName="email"/>
             <br>
             <label for="password">Password:</label>
             <br>
             <input type="password" name="password" placeholder="Password" formControlName="password"/>
             <br>
             <br>
-            <button mat-button class="submit-button" [disabled]="addUserForm.invalid">Create User</button>
+            <button mat-button class="submit-button" [disabled]="loginForm.invalid">Log in</button>
         </form>
         <div *ngIf="error">
             <p class="feedback">{{ error }}</p>

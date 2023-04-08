@@ -10,6 +10,7 @@ import { SharedService } from '../shared/SharedService';
   styleUrls: ['./emp-details.component.css']
 })
 export class EmpDetailsComponent {
+  feedback: String = "";
   error: any;
   employee: any;
 
@@ -42,8 +43,9 @@ export class EmpDetailsComponent {
     }).subscribe({
       error: (error) => this.error = error,
       complete: () => {
-        this.sharedService.setRefresh(true)
+        this.feedback = "Employee deleted successfully."
         this.sharedService.setEmpId("0")
+        this.sharedService.setRefresh(true)
       }
     })
     this.sharedService.setRefresh(true)

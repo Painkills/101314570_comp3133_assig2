@@ -1,43 +1,44 @@
 import { Component } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ADD_USER } from '../graphql/graphql.queries'
+import { LOGIN_USER } from '../graphql/graphql.queries'
+import { AuthService } from '../shared/AuthService';
 import { SharedService } from '../shared/SharedService';
 
 @Component({
-  selector: 'app-user-adding',
-  templateUrl: './user-adding.component.html',
-  styleUrls: ['./user-adding.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class UserAddingComponent {
+export class LoginComponent{
   feedback: String = "";
   error: any;
-  addUserForm = new FormGroup({
+  loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required)
   });
 
-  addUser() {
+  login() {
     this.apollo.mutate({
-      mutation: ADD_USER,
+      mutation: LOGIN_USER,
       variables: {
-        username: this.addUserForm.value.username,
-        email: this.addUserForm.value.email,
-        password: this.addUserForm.value.password
+        username: this.loginForm.value.username,
+        password: this.loginForm.value.password
       }
     }).subscribe({
       error: (error) => this.error = error,
       complete: () => {
-        this.feedback = "User added successfully."
+        this.feedback = "You have logged in successfully."
+        this.authService.login(this.loginForm.value.username!)
         this.sharedService.setRefresh(true)
-        this.addUserForm.reset();
+        this.loginForm.reset();
       }
     })
   }
 
   constructor (
     private apollo: Apollo,
+    private authService: AuthService,
     private sharedService: SharedService
   ) {}
 }

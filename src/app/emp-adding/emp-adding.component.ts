@@ -10,6 +10,7 @@ import { SharedService } from '../shared/SharedService';
   styleUrls: ['./emp-adding.component.css']
 })
 export class EmpAddingComponent {
+  feedback: String = "";
   employee: any;
   error: any;
   addEmpForm = new FormGroup({
@@ -36,6 +37,7 @@ export class EmpAddingComponent {
     }).subscribe({
       error: (error) => this.error = error,
       complete: () => {
+        this.feedback = "Employee added successfully."
         this.sharedService.setRefresh(true)
         this.addEmpForm.reset();
       }

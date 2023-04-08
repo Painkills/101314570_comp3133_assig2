@@ -23,7 +23,7 @@
   </div>
   <div>
     <div style="display: flex;">
-      <button class="topButtons" type="button" mat-button [routerLink]="['/editEmp', ]" routerLinkActive="active" ariaCurrentWhenActive="page">
+      <button class="topButtons" type="button" mat-button (click)="logout()" [routerLink]="['/login', ]" routerLinkActive="active" ariaCurrentWhenActive="page">
         Logout
       </button>
     </div>
@@ -35,10 +35,14 @@
 
 <div class="container">
   <span>
-    <app-emp-list></app-emp-list>
+    <ng-container *ngIf="userStatus">
+      <app-emp-list></app-emp-list>
+    </ng-container>
   </span> 
   <span class="mainInfo">
-    <app-emp-details />
+    <ng-container *ngIf="userStatus">
+      <app-emp-details />
+    </ng-container>
   </span>
   <span class="mainInfo">
     <router-outlet></router-outlet>

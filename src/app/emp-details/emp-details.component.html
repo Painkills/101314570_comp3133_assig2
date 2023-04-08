@@ -19,9 +19,11 @@
         </div>
       </div>
       <div *ngIf="error">
-        <p>Error: {{ error }}</p>
-    </div>  
+        <p class="feedback">{{ error }}</p>
     </div>
-      
+    <div *ngIf="feedback">
+      <p class="feedback">{{ feedback }}</p>
+  </div>  
+    </div>
   </ng-container>
 </div>

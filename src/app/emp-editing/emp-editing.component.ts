@@ -13,6 +13,7 @@ import { SharedService } from '../shared/SharedService';
 
 
 export class EmpEditingComponent {
+  feedback: String = "";
   employee: any;
   error: any;
   editEmpForm = new FormGroup({
@@ -55,8 +56,8 @@ export class EmpEditingComponent {
     }).subscribe({
       error: (error) => this.error = error,
       complete: () => {
+        this.feedback = "Employee edited successfully."
         this.sharedService.setRefresh(true)
-        console.log(this.sharedService.getRefresh)
       }
     })
   }
