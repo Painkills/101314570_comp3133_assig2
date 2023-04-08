@@ -1,0 +1,11 @@
+.empDetails {
+    padding: 40px;
+    width: 100%;
+}
+
+.button {
+    align-self:flex-end;
+    width: 200px;
+    padding: 5px;
+    border-radius: 20px;
+}

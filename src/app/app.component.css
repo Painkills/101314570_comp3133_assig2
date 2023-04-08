@@ -1,0 +1,49 @@
+.header {
+    display: flex;
+    align-content: center;
+    flex-flow: row;
+    justify-content: space-evenly;
+    padding: 1rem;
+    background-color:darkblue;
+  }
+
+  .container {
+    margin: 1rem;
+    display: flex;
+    flex-flow: row;
+    height: 100%;
+  }
+  
+  span {
+    padding: 1rem;
+  }
+
+  .topButtons {
+    align-self:flex-end;
+    width: 200px;
+    padding: 5px;
+    border-radius: 20px;
+  }
+
+  .sections {
+    margin: 1rem;
+  }
+
+  .mainInfo {
+    display: flex;
+    align-items: flex-start;
+    width: 45%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  .banner {
+    background-color: steelblue;
+    padding: 30px;
+  }
+
+  .banner h1 {
+    margin: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }

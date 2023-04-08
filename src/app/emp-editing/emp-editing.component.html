@@ -1,0 +1,29 @@
+<div>
+    <h2>Edit Employee:</h2>
+    <div class="empDetails">
+        <form class="form" [formGroup]="editEmpForm" (ngSubmit)="editEmp()">
+            <label for="firstname">Name (First and Last):</label>
+            <br>
+            <input class="nameForms" type="text" name="firstname" placeholder="Select Employee to Edit" [value]="employee?.firstname" formControlName="firstname"/>
+            <input class="nameForms"  type="text" name="lastname" placeholder="Select Employee to Edit" [value]="employee?.lastname" formControlName="lastname"/>
+            <br>
+            <label for="email">Email:</label>
+            <br>
+            <input type="text" name="email" placeholder="Select Employee to Edit" [value]="employee?.email" formControlName="email"/>
+            <br>
+            <label for="gender">Gender:</label>
+            <br>
+            <input type="text" name="gender" placeholder="Select Employee to Edit" [value]="employee?.gender" formControlName="gender"/>
+            <br>
+            <label for="salary">Salary:</label>
+            <br>
+            <input type="number" name="salary" placeholder="Select Employee to Edit" [value]="employee?.salary" formControlName="salary"/>
+            <br>
+            <br>
+            <button mat-button class="submit-button" [disabled]="editEmpForm.invalid">Submit Changes</button>
+        </form>
+        <div *ngIf="error">
+            <p>Error: {{ error }}</p>
+        </div>
+    </div>
+</div>

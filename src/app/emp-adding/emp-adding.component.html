@@ -1,0 +1,29 @@
+<div>
+    <h2>Add an Employee:</h2>
+    <div class="empDetails">
+        <form class="form" [formGroup]="addEmpForm" (ngSubmit)="addEmp()">
+            <label for="firstname">Name (First and Last):</label>
+            <br>
+            <input class="nameForms" type="text" name="firstname" placeholder="First name" formControlName="firstname"/>
+            <input class="nameForms"  type="text" name="lastname" placeholder="Last name" formControlName="lastname"/>
+            <br>
+            <label for="email">Email:</label>
+            <br>
+            <input type="email" name="email" placeholder="Email" formControlName="email"/>
+            <br>
+            <label for="gender">Gender:</label>
+            <br>
+            <input type="text" name="gender" placeholder="Gender" formControlName="gender"/>
+            <br>
+            <label for="salary">Salary:</label>
+            <br>
+            <input type="number" name="salary" placeholder="Salary" formControlName="salary"/>
+            <br>
+            <br>
+            <button mat-button class="submit-button" [disabled]="addEmpForm.invalid">Add Employee</button>
+        </form>
+        <div *ngIf="error">
+            <p>{{ error }}</p>
+        </div>
+    </div>
+</div>
